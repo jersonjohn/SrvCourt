@@ -1,0 +1,32 @@
+﻿<div id="modalPopUp" class="popup-basic bg-none mfp-with-anim mfp-hide">
+    <div class="allcp-form theme-primary">
+        <div class="panel">
+            <div class="panel-heading">
+                <span class="panel-icon">
+                    <i class="fa fa-pencil"></i>
+                </span>
+                <span class="panel-title"> {{modalGroup.modalHeader}}</span>
+            </div>
+            <div class="panel-body">
+                <div class="media-body">
+                    <button class="btn btn-primary" ngf-select ng-model="modalGroup.picFile" accept="image/*">
+                        Select Picture
+                    </button>
+                    <div ng-click="">
+                        <div ngf-drop ng-model="modalGroup.picFile" ngf-pattern="image/*"
+                             class="cropArea">
+                            <img-crop image="modalGroup.picFile  | ngfDataUrl" area-type="square" result-image="croppedDataUrl" result-image-size="400" ng-init="croppedDataUrl=''">
+                            </img-crop>
+                        </div>
+                        <!--<img ng-src="{{group.ProfileImg_ApiSource}}?id={{group.zModel.UserName}}&size=lg" alt="Profile Picture">-->
+                    </div>
+                    <!--<button class="btn btn-primary" ng-click="upload(croppedDataUrl)">Submit</button>-->
+                </div>
+            </div>
+            <div class="panel-footer text-right">
+                <button class="btn btn-primary" ng-click="upload(croppedDataUrl)">Submit</button>
+                <button class="btn btn-primary" ng-click="closePopUp()">Close</button>
+            </div>
+
+        </div>
+    </div>

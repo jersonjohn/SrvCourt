@@ -1,0 +1,33 @@
+﻿<div id="modalPopUp" class="popup-basic bg-none mfp-with-anim mfp-hide">
+    <div class="allcp-form theme-primary">
+        <div class="panel">
+            <div class="panel-heading">
+                <span class="panel-icon">
+                    <i class="fa fa-pencil"></i>
+                </span>
+                <span class="panel-title"> {{modalGroup.modalHeader}}</span>
+            </div>
+
+           
+
+            <div class="panel-body">
+                <ul class="media-list" role="menu">
+                    <li class="media" ng-repeat="item in modalGroup.zModalAttachment">
+                        <div class="media-body">
+                            <h5>
+                                {{ item.ModBy }}
+                                <small class="text-muted"> - {{ item.ModDate | date:'medium'}}</small>
+                                <a ng-click="modalGroup.removeFile($event, item.Id)" class="glyphicon glyphicon-remove-sign"></a>
+                            </h5>
+                            <!--<h3>{{ item.ModBy }} <span flex><a ng-click="modalGroup.removeFile($event, item.Id)" class="glyphicon glyphicon-remove-sign"></a></span></h3>
+                            <h4>{{ item.ModDate | date:'medium'}}</h4>-->
+                            <label for="comment">Image:</label>
+                            <div ng-click="modalGroup.openNewTabWindow(item.Id)">
+                                <img ng-src="/api/TicketFileAttachment/?id={{item.Id}}&size=md" alt="eSupport Attachment">
+                            </div>
+                        </div>
+                     </li>
+                 </ul>
+            </div>
+    </div>
+</div>

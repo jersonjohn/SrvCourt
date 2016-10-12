@@ -1,0 +1,199 @@
+﻿<!-- Modal 5 ====== Make New APPOINTMENT ========  --->
+<div id="modalPopUp" class="popup-basic bg-none mfp-with-anim mfp-hide">
+
+    <div class="center" style="padding: 15px 15px 15px 15px;">
+        <div class="center" style="padding: 15px;">
+            <!---CONTENT ----->
+            <h3 style="color:#F78C04;">Update Appointment</h3>
+
+            <form class="widget-subscribe-form2" style="max-width: 350px;">
+                <label style="color:#fff;">Customer ID</label><br>
+                <input type="text" placeholder="CustomerID" ng-model="modalGroup.zModal.CustomerId_AES">
+                <br>
+                <label style="color:#fff;">Customer Name</label><br>
+                <input type="text" placeholder="CustomerName" ng-model="modalGroup.zModal.CustomerName">
+                <br>
+                <label style="color:#fff;">Tel No</label><br>
+                <input type="text" width="50" ng-model="modalGroup.zModal.TelNo">
+                <br>
+                <label style="color:#fff;">Mobile No</label><br>
+                <input type="text" width="50" ng-model="modalGroup.zModal.MobileNo">
+                <br>
+                <label style="color:#fff;">Appointment Date</label><br>
+                <input type="text" width="50" zuidatepicker class="gui-input form-control" ng-model="modalGroup.zModal.BookDate" ng-change="OnChangeBookDate()">
+                <br>
+                <label style="color:#fff;">Appointment Time</label><br>
+                <input type="text" width="50" class="gui-input form-control" zuitimepicker ng-model="modalGroup.zModal.BookTime">
+                <br>
+                <label style="color:#fff;">Consultant</label><br>
+                <input type="text" placeholder="Consultant" ng-model="modalGroup.zModal.ConsultantName">
+                <br>
+                <label style="color:#fff;">AssignTo</label><br>
+                <!--<input type="text" placeholder="Consultant" ng-model="modalGroup.zModal.AssignToConsultantId">
+                <br>-->
+                <!--<select ng-options="consultant as consultant.Name  for consultant in consultants"
+                        ng-model="modalGroup.zModal.AssignToConsultantId"></select>-->
+                <select>
+                    <option ng-repeat="consultant in modalGroup.zModal.consultants" value="{{consultant.Id}}"
+                            ng-selected="{{ consultant.Selected == true }}">
+
+                        {{consultant.Name}}
+
+                    </option>
+                </select>
+                <br>
+
+                <input type="checkbox" zuicheckbox placeholder="IsScan?" ng-model="modalGroup.zModal.IsScan">
+                <label style="color:#fff;">Need Scan?</label>
+                <br>
+                <label style="color:#fff;">Remark</label><br>
+                <input type="text" placeholder="Remark" ng-model="modalGroup.zModal.Remark">
+                <br>
+                <label style="color:#fff;">Status</label><br>
+                <input type="text" placeholder="StatusCode" ng-model="modalGroup.zModal.StatusCode">
+                <br>
+
+
+
+                <table cellspacing="0" cellpadding="0" width="100%" align="left" border="0">
+                    <tbody>
+                        <tr>
+                            <td height="19" align="center" valign="middle"><button class="button button-rounded button-border button-light noleftmargin" type="submit" style="vertical-align:middle;" ng-click="modalGroup.modalAnswer('OK')">Confirm</button></td>
+                            <td align="center" valign="middle"><button class="button button-rounded button-border button-light noleftmargin" type="submit" style=" font-size:80%;vertical-align:middle; line-height:12px;" ng-click="modalGroup.modalAnswer('Cancel')">Cancel<br>Appointment</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </form>
+
+
+            <!---CONTENT END ----->
+        </div>
+
+
+    </div>
+    <!-- end of Modal 5 ==============  --->
+    <!--<div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+    <div class="modal-dialog wd schedule-grid-daily">
+        <div class="modal-body pad">
+            <div class="modal-content">
+                <div class="modal-header modal-hd-sty">
+                    <!------Close Button ---->
+    <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+    <h4 class="modal-title center" id="myModalLabel">Update Appointment</h4>
+</div>
+<div class="modal-body">
+    <!------Content Start ---->
+
+
+    <form id="widget-subscribe-form" class="nobottommargin">
+
+
+        <h7 style="color:#000;">Customer</h7><h6 style="color:#000;">{{modalGroup.zModal.CustomerId_AES}} - {{modalGroup.zModal.CustomerName}}</h6><br>
+        <h6 style="color:#000;margin-top:-5px;">HP:{{modalGroup.zModal.MobileNo}}</h6>
+        <br>
+
+        <div class="col-md-2 col-sm-2 col-sty">
+            <div class="tab-style"><h7 style="color:#000;padding-left:1px">Consultant</h7></div>
+        </div>
+
+        <div class="col-md-10 col-sm-10 col-sty">
+            <div class="tab-style"><h6 style="color:#F57403;font-size:15px;">&nbsp;&nbsp;{{modalGroup.zModal.ConsultantName}}</h6></div>
+        </div>
+
+        <br>
+
+        <div class="col-md-2 col-sm-2 col-sty">
+            <div class="tab-style"><h7 style="color:#000;padding-left:1px">Status</h7></div>
+        </div>
+
+        <div class="col-md-10 col-sm-10 col-sty">
+            <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">&nbsp;&nbsp;{{modalGroup.zModal.StatusCode}}</h6></div>
+        </div>
+
+        <br>
+
+        <div class="col-md-2 col-sm-2 col-sty">
+            <div class="tab-style"><h7 style="color:#000;padding-left:1px">Bed No.</h7></div>
+        </div>
+
+        <div class="col-md-10 col-sm-10 col-sty">
+            <div class="tab-style"><h6 style="color:#000;font-size:15px;">&nbsp;&nbsp;{{modalGroup.zModal.BedNo}}</h6></div>
+        </div>
+
+
+        <br>           <br>
+
+
+        <div class="col-md-6 col-sm-6 col-sty">
+            <label class="label-style">Appointment Date</label>
+            <input type="text" width="50" zuidatepicker class="gui-input form-control" ng-model="modalGroup.zModal.BookDate" ng-change="OnChangeBookDate()">
+            <!--<input class="input-style" type="date" id="date" name="Date"><br> -->
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-sty">
+            <label class="label-style">Appointment Time</label>
+            <input type="text" width="50" class="gui-input form-control" zuitimepicker ng-model="modalGroup.zModal.BookTime">
+            <!--<input class="input-style" type="time" id="time" name="time">-->
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-sty">
+            <div class="tab-style">
+                <label class="label-style">Assign To</label>
+                <!--<select>
+                    <option>Please Select..</option>
+                    <option>Peggy Chong</option>
+                    <option>Kimberly Tan</option>
+                    <option>Peggy Chong</option>
+                    <option>Peggy Chong</option>
+                    <option>Kimberly Tan</option>
+                    <option>Peggy Chong</option>
+                </select>-->
+                <select>
+                    <option ng-repeat="consultant in modalGroup.zModal.consultants" value="{{consultant.Id}}"
+                            ng-selected="{{ consultant.Selected == true }}">
+
+                        {{consultant.Name}}
+
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-sty">
+            <div class="tab-style">
+                <label class="label-style">Scanning</label><br>
+                <input type="checkbox" zuicheckbox placeholder="IsScan?" ng-model="modalGroup.zModal.IsScan">
+                <!--<select>
+                    <option>Yes</option>
+                    <option>No</option>
+                    <input type="checkbox"
+                </select>-->
+            </div>
+        </div>
+
+        <br>
+        <div class="col-md-12 col-sm-12 col-sty">
+            <label class="label-style">Remark</label><br>
+            <textarea class="input-style txtarea-sty" id="Remark">{{modalGroup.zModal.Remark}}</textarea><br>
+        </div>
+
+        <br><br><br /><br />
+
+
+        <div>
+            <!-- class="modal-footer mfooter-sty" -->
+            <button type="button" class="btn btn-default btn-sty bg-cyan txt-bk" ng-click="modalGroup.modalAnswer('OK')">Update</button>
+            <button type="button" class="btn btn-default btn-sty bg-red txt-bk" ng-click="modalGroup.modalAnswer('Cancel')">Cancel</button>
+            <button type="button" class="btn btn-default btn-sty bg-pink txt-bk" ng-click="modalGroup.modalAnswer('CheckIn')">Check In</button>
+            <button type="button" class="btn btn-default btn-sty bg-grey txt-bk" ng-click="modalGroup.modalAnswer('NoShow')">No Show</button>
+        </div>
+
+    </form>
+</div><!------Modal Body end ---->
+            </div>
+        </div>
+    </div><!------modal-dialog ---->-->
+

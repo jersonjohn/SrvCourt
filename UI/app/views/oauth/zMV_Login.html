@@ -1,0 +1,92 @@
+﻿<div id="modalPopUp" class="popup-basic bg-none mfp-with-anim mfp-hide">
+    <!-- -------------- Main Wrapper -------------- -->
+    <!--<section id="content_wrapper">-->
+    
+        <!-- -------------- Content -------------- -->
+        <section id="content">
+
+            <!-- -------------- Login Form -------------- -->
+            <div class="allcp-form theme-primary mw320" id="login" style="margin: 0 auto">
+                <div class="text-center mb20">
+                    <img ng-src="/assets/img/app-logo-{{appName}}.png" class="img-responsive"
+                         alt="Logo" />
+                </div>
+                <div class="panel mw320" style="padding:25px;">
+
+                    <div ng-repeat="alert in alerts" ng-class="['alert-' + alert.type, 'alert alert-micro light alert-dismissable']">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="closeAlert($index)">×</button>
+                        <i class="fa fa-cubes pr10 hidden"></i>
+                        {{alert.msg}}
+                    </div>
+
+
+                    <form role="form" name="F1" id="form-login" novalidate="novalidate">
+                        <div class="panel-body pn mv10" >
+
+                            <div class="section">
+                                <label for="username" ng-class="[(F1.username.$invalid && F1.username.$dirty) ? 'state-error' : null, 'field prepend-icon']">
+                                    <input type="text" name="username" id="username" class="gui-input" maxlength="20"
+                                           placeholder="Username" required ng-model="loginData.userName">
+                                    <label for="username" class="field-icon">
+                                        <i class="fa fa-user"></i>
+                                    </label>
+                                </label>
+                                <em ng-if="F1.username.$error.required && F1.username.$dirty" for="username" class="state-error">Enter username</em>
+
+                            </div>
+                            <!-- -------------- /section -------------- -->
+
+                            <div class="section">
+                                <label for="password" ng-class="[(F1.password.$invalid && F1.password.$dirty) ? 'state-error' : null, 'field prepend-icon']">
+                                    <input type="password" name="password" id="password" class="gui-input" maxlength="20"
+                                           placeholder="Password" required ng-model="loginData.password">
+                                    <label for="password" class="field-icon">
+                                        <i class="fa fa-lock"></i>
+                                    </label>
+                                </label>
+                                <em ng-if="F1.password.$error.required && F1.password.$dirty" for="password" class="state-error">Enter password</em>
+
+                            </div>
+                            <!-- -------------- /section -------------- -->
+
+                            <div class="section">
+                                <div class="pull-left pt5">
+                                    <h6>
+                                        <a href="/forgetPassword" style="cursor:pointer">Forgot your password?</a>  <!--ng-click="goForgetPasswordPage()"-->
+                                    </h6>
+                                    <!--<div class="radio-custom radio-primary mb5 lh25">
+                                        <input type="radio" id="remember" name="remember">
+                                        <label for="remember">Remember me</label>
+                                    </div>-->
+                                </div>
+                                <!--ng-disabled="F1.$invalid"-->
+                                <button id="loginbutton" type="submit" class="btn btn-bordered btn-primary pull-right" ng-click="modalGroup.login(loginData)" ng-disabled="submittedLogin">{{loginButtonLabel}}</button>
+                            </div>
+                            <!-- -------------- /section -------------- -->
+
+                            <div class="section">
+                                <!--<div class="pull-left pt5">
+                                    <h6>
+                                        <a href="/forgetPassword" style="cursor:pointer">Forgot your password?</a> 
+                                    </h6>
+                                </div>-->
+                            </div>
+                            <!-- -------------- /section -------------- -->
+
+                        </div>
+                        <!-- -------------- /Form -------------- -->
+                    </form>
+                </div>
+                <!-- -------------- /Panel -------------- -->
+            </div>
+            <!-- -------------- /Spec Form -------------- -->
+
+        </section>
+        <!-- -------------- /Content -------------- -->
+
+    <!--</section>-->
+    <!-- -------------- /Main Wrapper -------------- -->
+
+
+
+</div>

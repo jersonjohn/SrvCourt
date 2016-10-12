@@ -1,0 +1,36 @@
+﻿<div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+
+    <div class="panel user-group-widget">
+        <div class="panel-heading">
+            <span class="panel-title"> User Group Listing</span>
+        </div>
+        <div class="panel-menu">
+            <div class="input-group ">
+                <span class="input-group-addon">
+                    <i class="fa fa-search"></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Search user... (eg: IT, Susan)">
+            </div>
+        </div>
+        <div class="panel-body panel-scroller pn" style="max-height: 400px;">
+            <div class="row">
+                <div ng-repeat="user in modalGroup.zModal"> <!--style="display:inline">-->
+                    <div class="col-xs-4 col-md-3 mt10">
+                        <zimg url="ProfileImg_ApiSource" src="user.UserName" size="sm" alt="avatar" imgClass="user-avatar" refresh-image="refreshUserImage"></zimg>
+                        <!--<img src="assets/img/avatars/1.jpg" class="user-avatar">-->
+
+                        <div class="caption">
+                            <h6>
+                                {{user.FirstName}} {{user.LastName}}
+                                <br>
+                                <small> {{user.Department}}</small>
+                            </h6> 
+                        </div>
+                    </div>
+  
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

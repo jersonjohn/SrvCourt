@@ -1,0 +1,30 @@
+﻿
+
+<div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+    <div class="modal-dialog wd schedule-grid-daily" >
+        <div class="modal-body pad">
+            <div class="modal-content">
+                <div class="modal-header noborder">
+                    <!------Close Button ---->
+                    <!--  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                    <!---<h4 class="modal-title" id="myModalLabel">Modal Heading</h4>--->
+                </div>
+                <div class="modal-body center">
+                    <!------Content Start ---->
+                    <h6 style="color:#fff;"  ng-show="modalGroup.showcustomerId"><a href="#" ng-click="modalGroup.modalAnswer('edit')">{{modalGroup.customerId}} -{{modalGroup.customerName}}</a></h6>
+                    <hr style="color:#000;"  ng-show="modalGroup.showcustomerId" />
+
+                    <h6 style="color:#fff;"><img src="/Templates/images/icon_newAppt.png" width="16" height="16" alt="" /><a href="#" ng-click="modalGroup.modalAnswer('new')">&nbsp;New Appointment</a></h6>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

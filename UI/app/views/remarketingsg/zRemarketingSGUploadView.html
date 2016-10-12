@@ -1,0 +1,66 @@
+﻿
+    <div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+       
+        <div class="modal-dialog schedule-grid-daily">
+            <div class="modal-body pad">
+                <div class="modal-content">
+                    <div class="modal-header modal-hd-sty">
+                        <!------Close Button ---->
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                        <h6 class="modal-title center" id="myModalLabel">DNC CSV File Upload</h6>
+                    </div>
+                    <div class="modal-body">
+                        <!------Content Start ---->
+
+
+                        <form id="widget-subscribe-form" name="F1" class="nobottommargin">
+                          
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <label class="label-style">Select File to Upload</label><br>
+                                    <input type="file"  name="UpLoadFile" file-upload /><br />
+                                    <!--<ul>
+                                        <li ng-repeat="file in files">{{file.name}}</li>
+                                    </ul>-->
+                                </div>
+                             </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <label class="label-style">Brand</label>
+                                        <div class="tab-style">
+
+                                            <select id="company" ng-model="modalGroup.zModal.Company"
+                                                    ng-options="item.Name for item in modalGroup.zModal.CompanyList track by item.Id"
+                                                    convert-to-number="true" ng-required="true"></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <label class="label-style">Description</label><br>
+                                        <textarea class="input-style txtarea-sty" id="Description" placeholder="Upload file description is mandatory" ng-model="modalGroup.zModal.Description" ng-required="true"></textarea><br>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="btn-group col-md-12 col-xs-12">
+                                        <button type="button" class="btn btn-default btn-sty bg-cyan txt-bk" ng-click="modalGroup.modalAnswer('OK')" ng-disabled="F1.$invalid || fileSelected || modalGroup.zModal.Company == '-1' ">Upload</button>
+                                        <button type="button" class="btn btn-default btn-sty bg-red txt-bk" ng-click="modalGroup.modalAnswer('Cancel')" ng-disabled="F1.$invalid || fileSelected || modalGroup.zModal.Company == '-1' ">Cancel</button>
+
+                                    </div>
+                                </div>
+
+                                 </form>
+                    </div><!------Modal Body end ---->
+
+
+                </div>
+            </div>
+        </div><!------modal-dialog ---->
+        </div>
+

@@ -1,0 +1,107 @@
+﻿
+<header id="topbar" class="alt">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-icon">
+                <a href="#">
+                    <span class="fa fa-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-active">
+                <a href="#">{{group.formHeader}}-[{{brandName}} - {{outletName}}]</a>
+            </li>
+           
+        </ol>
+    </div>
+    <div class="topbar-right">
+       
+    </div>
+</header>
+
+<!-- -------------- Content -------------- -->
+<section id="content" class="animated fadeIn">
+    <div class="allcp-form theme-primary">
+        <div class="panel">
+            <!--<div class="panel-heading">
+                <div class="panel-title">
+                   {{group.formHeader}}-[{{brandName}} - {{outletName}}]
+                </div>
+            </div>-->
+            <!--<div class="panel-body">-->
+            <div class="panel-body" style="padding:10px">
+
+
+
+                <div class="col-xs-4 col-md-3">
+                    <!--<p class="input-group">-->
+                    <button type="button" class="btn btn-primary" ng-click="prevDay()"><</button>
+                    <button type="button" class="btn btn-primary" ng-click="today()">Today</button>
+                    <button type="button" class="btn btn-primary" ng-click="nextDay()">></button>
+                    <button type="button" class="btn btn-primary" ng-click="search()">S</button>
+                    <button type="button" class="btn btn-primary" ng-click="showHoliday()">P</button>
+                    <!--<input type="text" style="width:100px" zuidatepicker class="gui-input form-control" ng-model="sdate" />-->
+                </div>
+
+                <div class="col-xs-4 col-md-3">
+
+                    <button id="blockslot' " type="button" class="btn btn-primary" ng-click="blockSlot()">{{blockText}}</button>
+                    <button type="button" class="btn btn-primary" ng-click="showLegend()">Legend</button>
+
+                </div>
+
+                <div class="col-xs-4 col-md-2">
+                    <div ng-form="F1">
+                        <label class="control-label" for="Disabled">Show cancel</label>
+                        <zuicheckbox id="showCancel" value="showCancel" label="Disabled" showlabel="true">
+                        </zuicheckbox>
+                    </div>
+                </div>
+
+                <div class="clearfix">
+
+                </div>
+
+                <div class="col-xs-4 col-md-3">
+                    <label class="field prepend-icon">
+                        <input type="text" id="Request Date" class="gui-input form-control" zuidatepicker="" dateformat="DD/MM/YYYY, ddd" ng-model="dt" ng-change="OnChangeDate()" ng-required="false">
+                        <label class="field-icon"> <i class="fa fa-calendar"></i></label>
+                    </label>
+                </div>
+
+                <div class="col-xs-4 col-md-3">
+                    <p class="input-group">
+
+                        <select id="OutletId" ng-model="outletId"
+                                ng-options="item.Name + '-' +  item.Description for item in outlets track by item.Id"
+                                convert-to-number="true" ng-required="true" ng-change="OnChangeOutlet()"></select>
+                    </p>
+                </div>
+
+                <div class="col-xs-4 col-md-2">
+                    <div ng-form="F1">
+                        <label class="control-label" for="Disabled">Show name</label>
+                        <zuicheckbox id="showName" value="showName" label="showName" showlabel="true">
+                        </zuicheckbox>
+                    </div>
+                </div>
+
+                <br />
+
+                <!-- dailySchedule -->
+                <div class="col-xs-12 col-md-12" ng-if="loadMasterData == true"> <!--ng-if="loadMasterData == true"-->
+                   
+                    <daily-schedule-task outletid="{{outletId}}" sdate="{{dt | date:'MM-dd-yyyy'}}" block="{{block}}"></daily-schedule-task>
+                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</section>
+
+<!-- -------------- /Content -------------- -->

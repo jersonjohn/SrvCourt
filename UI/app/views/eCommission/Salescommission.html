@@ -1,0 +1,117 @@
+﻿<style>
+ 
+    #ecommission_content {
+        padding-left: 0;
+        padding-right: 0;
+        height: 500px;
+    }
+     #ecommission_content .panel {
+            padding: 15px;
+        }
+</style>
+
+<header id="topbar" class="alt">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-icon">
+                <a href="#">
+                    <span class="fa fa-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-active">
+                <a href="#">{{group.formHeader}}</a>
+            </li>
+
+        </ol>
+    </div>
+    <div class="topbar-right">
+
+    </div>
+</header>
+
+<section id="ecommission_content">
+    <div id="panel">
+
+        <div class="rtcomm-body">
+
+
+
+            <div ng-repeat="item in group.zData.SalesTransaction" class="row cell-sty1">
+                <!----- June 2016 ------->
+                <div class="panel-group2" id="accordion2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{$index}}">
+                                <table cellspacing="0" cellpadding="0" width="100%" align="left" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td height="30" align="left" valign="middle" class="tab-wd6">
+                                                <img src="Content/eCommission/img/icon-expand.png" class="icon-expand" />
+                                                <div class="mth-sty" ng-click="group.LoadMonthView(item)" >{{item.Monthname}} {{item.Comm_Year}}</div>
+                                            </td>
+                                            <td height="30" align="left" valign="middle" class="tab-wd6">
+                                                <img src="Content/eCommission/img/icon-happy.png" class="icon-happy" />
+                                                <div class="main-amt" ng-init="totsales=item.Sales_Comm">{{totsales}}</div>
+                                            </td>
+                                            <td height="30" align="left" valign="middle" class="tab-wd6">
+                                                <img src="Content/eCommission/img/icon-sad.png" class="icon-sad" />
+                                                <div class="main-amt" ng-init="totclosingrate=item.Service_Comm+ item.IS_Closing_Rate">{{totclosingrate}}</div>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </a>
+
+
+                        </div>
+                        <div id="collapse{{$index}}" class="panel-collapse collapse" style="height: auto;">
+                            <div class="panel-body" ng-click="group.LoadDateView(item)">
+
+                                <table cellspacing=" 0" cellpadding="0" width="100%" align="left" border="0" class="tab-tt">
+                                    <tbody>
+                                        <tr>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd1">Basic Pay</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd2">{{item.Basic_Pay}}</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd3"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd1">Sales Commission</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd2">{{item.Sales_Comm}}</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd3">  </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd1">Service Commission</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd2">{{item.Service_Comm}}</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd3"></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd1">Service Point</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd2">{{item.Service_Point}}</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd3"> </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd1">IS Closing Rate</td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd2"> </td>
+                                            <td height="10" align="left" valign="middle" class="dtab-wd3">{{item.IS_Closing_Rate}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</section>
+
+

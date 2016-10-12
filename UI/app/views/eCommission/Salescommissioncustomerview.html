@@ -1,0 +1,144 @@
+﻿<style>
+    .content-header b,
+    .allcp-form .panel.heading-border:before,
+    .allcp-form .panel .heading-border:before {
+        transition: all 0.7s ease;
+    }
+
+    #ecommission_content {
+        padding-left: 0;
+        padding-right: 0;
+        height: 500px;
+    }
+
+        #ecommission_content .panel {
+            padding: 15px;
+        }
+</style>
+
+<header id="topbar" class="alt">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-icon">
+                <a href="#">
+                    <span class="fa fa-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-active">
+                <a href="#">{{group.formHeader}}</a>
+            </li>
+
+        </ol>
+    </div>
+    <div class="topbar-right">
+
+    </div>
+</header>
+
+<section id="ecommission_content">
+    <div id="panel">
+
+        <div class="rtcomm-body">
+
+
+            <div ng-repeat="item in group.zModel.SalesCustomer" class="row cell-sty1">
+                <!----- June 2016 ------->
+                <div class="panel-group2" id="accordion2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{$index}}">
+                                <table cellspacing="0" cellpadding="0" width="100%" align="left" border="0">
+                                    <tbody>
+                                        <tr>
+                                            <td height="30" align="left" valign="middle" class="tab-wd2">
+                                                <img src="Content/eCommission/img/icon-expand.png" class="icon-expand" />
+                                                <div class="mth-sty">{{item.Customer_ID }}</div>
+                                            </td>
+
+                                            <td height="30" align="left" valign="middle" class="tab-wd7">
+                                                <div class="collection-amt"> Total Amt : ${{item.Total_Collection}} </div>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </a>
+
+
+                        </div>
+                        <div id="collapse{{$index}}" class="panel-collapse collapse" style="height: auto;">
+
+                            <div ng-repeat="itemdetail in group.zModel.SalesTransactionCustomerDetail" data-ng-if="itemdetail.Customer_ID==item.Customer_ID">
+                                <div class="panel-body">
+
+                                    <div class="panel-body-row">
+
+                                        <table cellspacing="0" cellpadding="0" width="100%" align="left" border="0" class="tab-tt">
+                                            <tbody>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>Package ID</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">Basic</td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">${{itemdetail.Basic_Pay}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">{{itemdetail.Package_ID}}</td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>IS</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">{{itemdetail.IS_Closing_Rate}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>Package Price</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>ACP</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">${{itemdetail.Given_ACP_Comm}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">${{itemdetail.Package_Price}}</td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>Service Commission</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">${{itemdetail.Service_Comm}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>Course Code</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>Total</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"> <div class='bar-happy-fg'><div class="cal-tt-hap-fg"> {{itemdetail.Total_Collection}} </div><img src='Content/eCommission/img/icon-happy.png' class='icon-cal-hap-fg'> </div> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">{{itemdetail.Course_ID}}</td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b></b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b></b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>Transaction Type</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>Is Closing Rate</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>${{itemdetail.IS_Closing_Rate}}</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">{{itemdetail.Transaction_Type}}</td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b></b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b></b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4"><b>Total</b></td>
+                                                    <td height="10" align="left" valign="middle" class="dtab-wd4">${{itemdetail.IS_Closing_Rate}} </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+

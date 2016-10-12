@@ -1,0 +1,125 @@
+﻿
+    <div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+       
+        <div class="modal-dialog schedule-grid-daily">
+            <div class="modal-body pad">
+                <div class="modal-content">
+                    <div class="modal-header modal-hd-sty">
+                        <!------Close Button ---->
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                        <h6 class="modal-title center" id="myModalLabel">View SMS Send Details</h6>
+                    </div>
+                    <div class="modal-body">
+                        <!------Content Start ---->
+
+
+                        <form id="widget-subscribe-form" name="F1" class="nobottommargin">
+                            <!--<div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <h7 style="color:#000;">DNC Batch No</h7><h6 style="color:#000;">{{modalGroup.zModal.DNCBatchID}}</h6>
+                                </div>
+
+                               
+                            </div>-->
+                            <!--<br>-->
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6">
+                                    <label class="label-style">DNC Batch No</label>
+                                    <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">{{modalGroup.zModal.DNCBatchID}}</h6></div>
+                                </div>
+                            </div>
+
+
+                                <!--<div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <h7 style="color:#000;">Description</h7><h6 style="color:#000;">{{modalGroup.zModal.Description}}</h6>
+                                    </div>
+                                </div>-->
+
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label class="label-style">Description</label>
+                                    <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">{{modalGroup.zModal.Description}}</h6></div>
+                                </div>
+                            </div>
+
+                                <!--<br>-->
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="label-style"><h7 style="color:#000;">Brand</h7></div>
+                                        <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">{{modalGroup.zModal.Brand}}</h6></div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="label-style"><h7 style="color:#000;">Campaign</h7></div>
+                                        <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">{{modalGroup.zModal.Campaign}}</h6></div>
+                                    </div>
+
+
+                                </div>
+
+                                <!--<br>-->
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="label-style"><h7 style="color:#000;">Transaction ID</h7></div>
+                                        <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">{{modalGroup.zModal.DNCTransactionID}}</h6></div>
+                                    </div>
+
+                                    <!--<div class="col-md-6 col-xs-6">
+                                        <div class="label-style"><h7 style="color:#000;">No of NR Records</h7></div>
+                                        <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">{{modalGroup.zModal.NoNRRecords}}</h6></div>
+                                    </div>-->
+
+
+                                </div>
+
+                                <!--<br>-->
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6">
+                                        <label class="label-style">Processed Date</label>
+                                        <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">{{modalGroup.zModal.DNCProcessedDate}}</h6></div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-6">
+                                        <label class="label-style">Expiry Date</label>
+                                        <div class="tab-style"><h6 style="color:#6333ED;font-size:15px;">{{modalGroup.zModal.DNCExpiryDate}}</h6></div>
+                                    </div>
+                                </div>
+                                <!--<br>-->
+
+                                <br>
+
+                            <table style="width:100%;border:2px;border-color:black;">
+                                <tr>
+                                    <td>SentDate</td>
+                                    <td>SentBy</td>
+                                    <td>SMSMessage</td>
+                                    <td>TotalNRSent</td>
+                                </tr>
+                                <tr>
+                                    <td>{{modalGroup.zModal.SmsDetail.SentDate }}</td>
+                                    <td>{{modalGroup.zModal.SmsDetail.SentBy}}</td>
+                                    <td>{{modalGroup.zModal.SmsDetail.SMSMessage}}</td>
+                                    <td>{{modalGroup.zModal.SmsDetail.TotalNRSent}}</td>
+                                </tr>
+                            </table>
+                            <br />
+                                
+                                <!--<br>-->
+                                <div class="row">
+                                    <div class="btn-group col-md-12 col-xs-12">
+                                        <button type="button" id="confirm" class="btn btn-default btn-sty bg-trans txt-bk" ng-click="modalGroup.modalAnswer('Confirm')" ng-disabled="modalGroup.showConfirmed  || F1.$invalid || modalGroup.invalidTime" ng-show="!modalGroup.showConfirmed">Cancel</button>
+                                    </div>
+                                </div>
+
+</form>
+                    </div><!------Modal Body end ---->
+
+
+                </div>
+            </div>
+        </div><!------modal-dialog ---->
+        </div>
+

@@ -1,0 +1,259 @@
+﻿
+    <div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+       
+        <div class="modal-dialog schedule-grid-daily">
+            <div class="modal-body pad">
+                <div class="modal-content">
+                    <div class="modal-header modal-hd-sty">
+                        <!------Close Button ---->
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                        <h4 class="modal-title center" id="myModalLabel">Extract AES Customer Mobile Number</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!------Content Start ---->
+
+
+                        <form id="widget-subscribe-form" name="F1" class="nobottommargin">
+                            <!--<div class="row">-->
+                                <div class="col-md-6 col-xs-6">
+                                    <label class="label-style">Extract Type</label>
+                                    <div class="tab-style">
+                                        <select id="Bed" ng-model="modalGroup.zModal.ExtractType"
+                                                ng-options="item.Name for item in modalGroup.zModal.ExtractTypeList track by item.Id"
+                                                convert-to-number="true" ng-required="true"></select>
+                                    </div>
+                                    <!--</div>-->
+                                </div>
+                            <!--</div>-->
+                            <br>
+                            <!--<div class="row">-->
+                                <div class="col-md-12 col-xs-12">
+                                    <label class="label-style">Brand</label>
+                                    <div class="tab-style">
+
+                                        <select id="company" ng-model="modalGroup.zModal.Company"
+                                                ng-options="item.Name for item in modalGroup.zModal.CompanyList track by item.Id"
+                                                convert-to-number="true" ng-required="true" ng-change="OnChangeCompany()"> </select>
+                                    </div>
+                                </div>
+                            <!--</div>-->
+
+                            <br>
+                            <!--<div class="row">-->
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Campaign</label>
+                                <div class="tab-style">
+
+                                    <select id="Bed" ng-model="modalGroup.zModal.Campaign"
+                                            ng-options="item.Name for item in modalGroup.zModal.CampaignList track by item.Id"
+                                            convert-to-number="true" ng-required="true"></select>
+                                </div>
+                            </div>
+
+
+                                <div class="col-md-6 col-xs-6">
+
+                                    <label class="label-style">Media</label>
+                                    <div class="tab-style">
+
+                                        <select id="Bed" ng-model="modalGroup.zModal.Media"
+                                                ng-options="item.Name for item in modalGroup.zModal.MediaList track by item.Id"
+                                                convert-to-number="true" ng-required="true"></select>
+                                    </div>
+                                    
+                                </div>
+                            <!--</div>-->
+                            <br >
+
+                            <!--<div class="row">-->
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Branch</label>
+                                <div class="tab-style">
+
+                                    <select id="Bed" ng-model="modalGroup.zModal.Branch"
+                                            ng-options="item.Name for item in modalGroup.zModal.BranchList track by item.Id"
+                                            convert-to-number="true" ng-required="true"></select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-xs-6">
+
+                                <label class="label-style">Visit</label>
+                                <div class="tab-style">
+
+                                    <select id="Bed" ng-model="modalGroup.zModal.Visit"
+                                            ng-options="item.Name for item in modalGroup.zModal.VisitList track by item.Id"
+                                            convert-to-number="true" ng-required="true"></select>
+                                </div>
+
+                            </div>
+                            <br />
+
+
+                            <!--</div>-->
+                           
+                            <!--<div class="row">-->
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Gender</label>
+                                <div class="tab-style">
+
+                                    <select id="Bed" ng-model="modalGroup.zModal.Gender"
+                                            ng-options="item.Name for item in modalGroup.zModal.GenderList track by item.Id"
+                                            convert-to-number="true" ng-required="true"></select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-xs-6">
+
+                                <label class="label-style">Closed</label>
+                                <div class="tab-style">
+
+                                    <select id="Bed" ng-model="modalGroup.zModal.Closed"
+                                            ng-options="item.Name for item in modalGroup.zModal.ClosedList track by item.Id"
+                                            convert-to-number="true" ng-required="true"></select>
+                                </div>
+
+                            </div>
+
+                            <!--</div>-->
+
+                            <br>
+
+                            <!--</div>-->
+                            <!--<div class="row">-->
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Birthday Month</label>
+                                <div class="tab-style">
+
+                                    <select id="Bed" ng-model="modalGroup.zModal.BirthMonth"
+                                            ng-options="item.Name for item in modalGroup.zModal.BirthMonthList track by item.Id"
+                                            convert-to-number="true" ng-required="true"></select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-xs-6">
+
+                                <label class="label-style">Race</label>
+                                <div class="tab-style">
+
+                                    <select id="Bed" ng-model="modalGroup.zModal.Race"
+                                            ng-options="item.Name for item in modalGroup.zModal.RaceList track by item.Id"
+                                            convert-to-number="true" ng-required="true"></select>
+                                </div>
+
+                            </div>
+
+                            <!--</div>-->
+                            <br>
+
+                            <!--</div>-->
+                            <!--<div class="row">-->
+                           
+                            <div class="col-md-6 col-xs-6">
+                                    <label class="label-style">Response From Date</label>
+                                    <!-- <input class="input-style" type="date" id="date" name="Date"><br> -->
+                                    <input class="input-style" width="50" zuidatepicker="MODAL" class="gui-input form-control" ng-model="modalGroup.zModal.ResponseFromDate"  />
+                            </div>
+
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Response To Date</label>
+                                <!-- <input class="input-style" type="date" id="date" name="Date"><br> -->
+                                <input class="input-style" width="50" zuidatepicker="MODAL" class="gui-input form-control" ng-model="modalGroup.zModal.ResponseToDate" />
+                            </div>
+                           
+
+
+                           <br>
+
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Visit From Date</label>
+                                <!-- <input class="input-style" type="date" id="date" name="Date"><br> -->
+                                <input class="input-style" width="50" zuidatepicker="MODAL" class="gui-input form-control" ng-model="modalGroup.zModal.VisitFromDate" />
+                            </div>
+
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Visit To Date</label>
+                                <!-- <input class="input-style" type="date" id="date" name="Date"><br> -->
+                                <input class="input-style" width="50" zuidatepicker="MODAL" class="gui-input form-control" ng-model="modalGroup.zModal.VisitToDate"  />
+                            </div>
+
+                            <br>
+
+                          
+
+                          
+                            <div class="col-md-6 col-sm-6">
+                                    <label class="label-style">Age From</label><br>
+                                    <input class="input-style txtarea-sty" type="text" ng-model="modalGroup.zModal.AgeFrom" ><br>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label class="label-style">Age To</label><br>
+                                <input class="input-style txtarea-sty" type="text" ng-model="modalGroup.zModal.AgeTo" ><br>
+                            </div>
+                            <br>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label class="label-style">Collection Above</label><br>
+                                <input class="input-style txtarea-sty" type="text" ng-model="modalGroup.zModal.CollectionAbove" ><br>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label class="label-style">Collection Below</label><br>
+                                <input class="input-style txtarea-sty" type="text" ng-model="modalGroup.zModal.CollectionBelow" ><br>
+                            </div>
+                            <br>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label class="label-style">Balance Above</label><br>
+                                <input class="input-style txtarea-sty" type="text" ng-model="modalGroup.zModal.BalanceAbove"><br>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <label class="label-style">Balance Below</label><br>
+                                <input class="input-style txtarea-sty" type="text" ng-model="modalGroup.zModal.BalanceBelow"><br>
+                            </div>
+                            <br>
+
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Last Visit From</label>
+                                <!-- <input class="input-style" type="date" id="date" name="Date"><br> -->
+                                <input class="input-style" width="50" zuidatepicker="MODAL" class="gui-input form-control" ng-model="modalGroup.zModal.LastVisitFromDate" />
+                            </div>
+
+                            <div class="col-md-6 col-xs-6">
+                                <label class="label-style">Last Visit To</label>
+                                <!-- <input class="input-style" type="date" id="date" name="Date"><br> -->
+                                <input class="input-style" width="50" zuidatepicker="MODAL" class="gui-input form-control" ng-model="modalGroup.zModal.LastVisitToDate" /><br><br>
+                            </div>
+
+                           
+                            
+                            <!--<div class="row">
+                            </div>-->
+                           
+
+                            <!--<div class="row">-->
+                                <div class="col-md-6 col-xs-6">
+                                    <button type="button" class="btn btn-default btn-sty bg-cyan txt-bk" ng-click="modalGroup.modalAnswer('OK')" ng-disabled="F1.$invalid">Generate</button>
+                                    <button type="button" class="btn btn-default btn-sty bg-red txt-bk" ng-click="modalGroup.modalAnswer('Cancel')" ng-disabled="F1.$invalid">Cancel</button>
+                                   
+                                </div>
+                            <!--</div>-->
+
+                            <div class="row">
+                            </div>
+
+
+                        </form>
+                    </div><!------Modal Body end ---->
+
+
+                </div>
+            </div>
+        </div><!------modal-dialog ---->
+      </div>
+

@@ -1,0 +1,37 @@
+﻿<div id="modalPopUp" class="popup-basic bg-none mfp-with-anim mfp-hide">
+    <div class="allcp-form theme-primary">
+        <div class="panel">
+            <div class="panel-heading">
+                <span class="panel-icon">
+                    <i class="fa fa-pencil"></i>
+                </span>
+                <span class="panel-title"> {{modalGroup.modalHeader}}</span>
+            </div>
+            <div class="panel-body">
+                <h6>
+                    Upload on multiple files
+                    <zfileupload upload-url="{{group.fileUploadUrl}}" file-reference-id="{{group.referenceId}}" model="modalGroup" onupload-success="modalGroup.onFileUploadSuccess()" upload-button-class="btn btn-primary" ></zfileupload>
+
+                    <!--<a class="btn btn-primary" ngf-select="modalGroup.uploadFiles($files)" multiple
+                       accept="image/*">
+                        <span class="glyphicon glyphicon-upload"></span> Select Files
+                    </a>-->
+                </h6>
+
+                
+
+                <br><span ng-if="modalGroup.files.length > 0">Files:</span>
+                <ul>
+                    <li ng-repeat="f in modalGroup.files" style="font:smaller">
+                        {{f.name}} - {{f.progress}}%
+                        <div><md-progress-linear md-mode="determinate" value="{{f.progress}}"></md-progress-linear></div>
+                    </li>
+                </ul>
+            </div>
+            <!--<div class="panel-footer text-right">
+                <button class="btn btn-primary" type="button" ng-click="ok()"></button>
+                <button class="btn btn-primary" type="button" ng-click="cancel()"></button>
+            </div>-->
+        </div>
+    </div>
+</div>

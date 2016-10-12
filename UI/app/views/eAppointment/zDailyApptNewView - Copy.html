@@ -1,0 +1,48 @@
+﻿<!-- Modal 5 ====== Make New APPOINTMENT ========  --->
+<div id="modalPopUp" class="popup-basic bg-none mfp-with-anim mfp-hide">
+
+    <div class="center" style="padding: 15px 15px 15px 15px;">
+        <!---CONTENT ----->
+        <h3 style="color:#F78C04;">Make New Appointment</h3>
+
+        <form class="widget-subscribe-form2" style="max-width: 350px;">
+            
+            <label style="color:#fff;">Customer ID</label><br>
+            <input type="text" placeholder="CustomerID" ng-model="modalGroup.zModal.CustomerId_AES" ng-blur="OnChangeCustomerId()"  /> <!--ng-model-options="{updateOn: 'blur'}" -->
+            <br>
+            <label style="color:#fff;">Customer Name</label><br>
+            <input type="text" placeholder="CustomerName" ng-model="modalGroup.zModal.CustomerName">
+            <br>
+            <label style="color:#fff;">Appointment Date</label><br>
+            <input type="text" width="50" zuidatepicker class="gui-input form-control" ng-model="modalGroup.zModal.BookDate" ng-change="OnChangeBookDate()">
+            <br>
+            <label style="color:#fff;">Appointment Time</label><br>
+            <input type="text" width="50" class="gui-input form-control" zuitimepicker ng-model="modalGroup.zModal.BookTime">
+            <br>
+
+            <!--<label style="color:#fff;">AssignToConsultantId</label><br>
+            <input type="text" placeholder="Consultant" ng-model="modalGroup.zModal.AssignToConsultantId">
+            <br>
+            <label style="color:#fff;">Remark</label><br>
+            <input type="text" placeholder="Remark" ng-model="modalGroup.zModal.Remark">
+            <br>
+            <label style="color:#fff;">ReminderType</label><br>
+            <input type="text" placeholder="ReminderType" ng-model="modalGroup.zModal.ReminderType">
+            <br>
+            <label style="color:#fff;">Need Scan?</label><br>
+            <input type="text" placeholder="IsScan?" ng-model="modalGroup.zModal.IsScan">
+            <br>
+
+            <div class="g-recaptcha" data-sitekey="6LevbhQTAAAAAJ5CsCTDc6TKMQ3VfOs8wXxSgHzw"></div>
+            <br>-->
+
+            <button class="button button-rounded button-border button-light noleftmargin" type="submit" style="vertical-align:middle;" ng-click="modalGroup.modalAnswer('OK')">Book Now</button>
+        </form>
+
+
+
+        <!---CONTENT END ----->
+    </div>
+    <!--</div>-->
+</div>
+<!-- end of Modal 5 ==============  --->

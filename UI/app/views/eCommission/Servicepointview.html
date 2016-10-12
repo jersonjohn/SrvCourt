@@ -1,0 +1,73 @@
+﻿<style>
+    #ecommission_content {
+        padding-left: 0;
+        padding-right: 0;
+        height: 500px;
+    }
+
+        #ecommission_content .panel {
+            padding: 15px;
+        }
+</style>
+
+<header id="topbar" class="alt">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-icon">
+                <a href="#">
+                    <span class="fa fa-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-active">
+                <a href="#">{{group.formHeader}}</a>
+            </li>
+
+        </ol>
+    </div>
+    <div class="topbar-right">
+
+    </div>
+</header>
+
+<section id="ecommission_content">
+    <div id="panel">
+
+        <div class="rtcomm-body">
+
+            <section id="months" class="center">
+                <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <a ng-repeat="item in group.zModel.MonthOptions | orderBy:['Year','Month']" ng-click="group.LoadMonthView(item)"><span ng-class="{'label label-current':item.Month==CommMonth,'label label-primary':item.Month!=CommMonth}" class="label label-primary"> {{item.Monthname | uppercase}} {{item.Year }}</span></a>
+                </div>
+            </section>
+
+
+
+            <section id="mth-display">
+
+                <div class="row">
+                    <div ng-repeat="item in group.zModel.SalesTransactionMonth" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 tab-btns">
+
+                        <table cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+                            <tbody>
+                                <tr>
+                                    <td align="center" valign="middle"><span class="btn btn-alt btn-dimmer" role="tab" data-toggle="tab"><div ng-click="group.LoaddataSales(item)"> Sales Commission </div></span></td>
+                                    <td align="center" valign="middle"><span class="btn btn-alt btn-active" role="tab" data-toggle="tab"><div ng-click="group.LoaddataServicepoint(item)"> Service Point</div> </span></td>
+                                    <td align="center" valign="middle"><span class="btn btn-alt btn-dimmer" role="tab" data-toggle="tab"><div ng-click="group.LoaddataService(item)"> Service Commission</div> </span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <zaccordion id="calendar-widget-sales"></zaccordion>
+                </div>
+
+            </section>
+
+        </div>
+
+
+    </div>
+</section>
+
+

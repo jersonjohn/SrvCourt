@@ -1,0 +1,234 @@
+﻿<!-- -------------- Topbar -------------- -->
+            <header id="topbar" class="alt">
+                <div class="topbar-left">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-icon">
+                            <a href="#">
+                                <span class="fa fa-home"></span>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-active">
+                            <a href="#">{{group.formHeader}}</a>
+                        </li>
+                        <!--<li class="breadcrumb-link">
+                            <a href="#">Menu</a>
+                        </li>
+                        <li class="breadcrumb-current-item">{{group.formHeader}}</li>-->
+                    </ol>
+                </div>
+                <div class="topbar-right">
+                    <!--<div class="ib topbar-dropdown">
+                        <label for="topbar-multiple" class="control-label">Reporting Period</label>
+                        <div class="btn-group">
+                            <button type="button" class="multiselect dropdown-toggle btn btn-default btn-bordered ph15" data-toggle="dropdown" title="Last 60 Days" aria-expanded="false">Last 60 Days <b class="caret"></b></button>
+                            <ul class="multiselect-container dropdown-menu pull-right">
+                                <li class="multiselect-item multiselect-group"><label>Filter By:</label></li>
+                                <li><a href="javascript:void(0);"><label class="radio"><input type="radio" value="1-1"> Last 30 Days</label></a></li>
+                                <li class="active"><a href="javascript:void(0);"><label class="radio"><input type="radio" value="1-2"> Last 60 Days</label></a></li>
+                                <li><a href="javascript:void(0);"><label class="radio"><input type="radio" value="1-3"> Last Year</label></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ml15 ib va-m" id="sidebar_right_toggle">
+                        <div class="navbar-btn btn-group btn-group-number mv0">
+                            <button class="btn btn-sm btn-default btn-bordered prn pln">
+                                <i class="fa fa-bar-chart fs22 text-default"></i>
+                            </button>
+                            <button class="btn btn-primary btn-sm btn-bordered hidden-xs"> 3</button>
+                        </div>
+                    </div>-->
+                </div>
+            </header>
+            
+            <section id="content" class="animated fadeIn">
+                <div class="allcp-form theme-primary">
+                    <div class="panel">
+
+                        <!-- Support Ticket Fields -->
+                        <form id="zFrm" role="form" name="Frm" novalidate ng-class="[group.formChecked == true ? 'form-checked' : null]">
+                            <div ng-repeat="field in group.fields" style="display:inline">
+                                <!--ng-form="F1" style="display:inline">-->
+                                <z-input field='field' zform='F1' zmodel='group.zModel' index='{{$index + 1}}' group="group"></z-input>
+                            </div>
+                        </form>
+
+                        <!-- tabindex='{{$index + 1}}'></z-input> -->
+
+                        <div class="row">
+
+                            <div ng-repeat="item in group.zData.Files | filter:{TicketDetailsId : null} " class="col-md-3">
+                                <a href="javascript:void(0)" ng-click="group.viewImageAttached(item.Id)"><img ng-src="/api/getImageAttached/?id={{item.Id}}&size=sm" alt="eSupport Attachment"></a>
+                            </div>
+
+
+                        </div>
+                    
+                                    <!-- Ticket Details Fields -->
+                        
+
+                                    <div style="overflow: hidden;display:block;padding:0;margin:0!important" ng-repeat="item in group.zData.TcktsDetails | orderBy:'AddDate':true" class="panel-group accordion" id="accordion">
+                                        <div class="panel" style="margin-bottom: 0px!important;">
+                                            <div class="panel-heading">
+                                                <a aria-expanded="false" class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion" href="#accord{{item.Id}}">
+                                                    Updated at : {{item.AddDate | date:'medium'}} | Updated By : {{item.AddBy}} | Status : {{item.Status == 0 ? "Created" : item.Status == 1 ? "Assigned" : item.Status == 2 ? "Open": item.Status == 3 ? "Hold": item.Status == 4 ? "Resolved" :item.Status}}
+                                                    <span class="text-dark"></span>
+                                                </a>
+                                            </div>
+                                            <div aria-expanded="false" id="accord{{item.Id}}" class="panel-collapse collapse" style="height: 0px;">
+                                                <div class="panel-body mt45">
+                                                    <span ng-bind-html="item.Notes"></span>
+                                                    <br />
+
+                                                    <div ng-repeat="item in group.zData.Files | filter: { TicketDetailsId: item.Id }" class="col-md-3">
+                                                        <a href="javascript:void(0)" ng-click="group.viewImageAttached(item.Id)"><img ng-src="/api/getImageAttached/?id={{item.Id}}&size=sm" alt="eSupport Attachment"></a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Add Ticket Details overflow: hidden; -->
+
+                                    <div style="display:block;padding:0;margin:0!important" class="panel-group accordion" id="accordion">
+                                        <div class="panel" style="margin-bottom: 0px!important;">
+                                            <div class="panel-heading">
+                                                <a aria-expanded="true" class="accordion-toggle accordion-icon link-unstyled collapsed" data-toggle="collapse" data-parent="#accordion" href="#accord_AddComment">
+                                                    Add New Comment
+                                                    <span class="text-dark"></span>
+                                                </a>
+                                            </div>
+                                            <div aria-expanded="true" id="accord_AddComment" class="panel-collapse collapse" style="height: 0px;">
+                                                <div class="panel-body mt45">
+                                                    
+                                                    <!-- Add Comment Controls -->
+                                                    <div text-angular ng-model="group.zTckDetailModel.Notes" name="demo-editor" ta-text-editor-class="border-around" ta-html-editor-class="border-around"></div> <br />
+
+                                                    <select class="gui-input form-control ng-pristine ng-untouched ng-valid ng-valid-required ng-valid-parse" id="AssignedTo" name="n" ng-model="group.zModel.AssignedToVal" ng-options="item.UserName for item in group.zData.DeptUsers track by item.Id" ng-change="group.AssignedToOnChange()" ng-required="false &amp;&amp; true" convert-to-number="false"></select>
+
+                                                    <select class="gui-input form-control ng-pristine ng-untouched ng-valid ng-valid-required ng-valid-parse" id="Status" name="n" ng-model="group.zModel.StatusVal" ng-options="item.StatusText for item in group.zData.Status track by item.Id" ng-change="group.StatusOnChange()" ng-required="false &amp;&amp; true" convert-to-number="true"></select>
+
+                                                    <a class="btn btn-primary" ng-click="group.newTktDetailModel()" ng-disabled=""><span class="glyphicon glyphicon-save"></span> Add Comment</a>
+                                                    <a class="btn btn-primary" ng-click="group.newTckDetailsFileUpload()" ng-disabled=""><span class="glyphicon glyphicon-upload"></span> Add Images</a>
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                        
+                        <br/><br />
+
+                                    {{group.zTckDetailModel}} <br /><br />
+
+                                    Files Attached with Details : {{group.zTckDetailFile}}
+
+                        
+
+                                </div>
+                            </div>
+</section>
+
+
+<!-- Unused HTML -->
+
+<!--
+
+
+
+
+        <div class="oc-item">
+            <a href="#"><img src="images/portfolio/4/6-1.jpg" alt="Image 2"></a>
+        </div>
+        <div class="oc-item">
+            <a href="#"><img src="images/portfolio/4/6-2.jpg" alt="Image 3"></a>
+        </div>
+        <div class="oc-item">
+            <a href="#"><img src="images/portfolio/4/6-3.jpg" alt="Image 4"></a>
+            <
+        </div>
+        <div class="oc-item">
+            <a href="#"><img src="images/portfolio/4/9-1.jpg" alt="Image 5"></a>
+        </div>
+        <div class="oc-item">
+            <a href="#"><img src="images/portfolio/4/9-2.jpg" alt="Image 6"></a>
+        </div>
+        <div class="oc-item">
+            <a href="#"><img src="images/portfolio/4/12-1.jpg" alt="Image 7"></a>
+        </div>
+
+
+                              <ul class="media-list" role="menu">
+                                <li class="media" ng-repeat="item in group.zData.Files">
+                                    <div class="media-body">
+                                        <h5>
+                                            {{ item.ModBy }}
+                                            <small class="text-muted"> - {{ item.ModDate | date:'medium'}}</small>
+                                            <a ng-click="modalGroup.removeFile($event, item.Id)" class="glyphicon glyphicon-remove-sign"></a>
+                                        </h5>
+                                        <h3>{{ item.ModBy }} <span flex><a ng-click="modalGroup.removeFile($event, item.Id)" class="glyphicon glyphicon-remove-sign"></a></span></h3>
+                        <h4>{{ item.ModDate | date:'medium'}}</h4>
+                                        <label for="comment">Image:</label>
+                                        be
+                                        <div ng-click="modalGroup.openNewTabWindow(item.Id)">
+                                            <img ng-src="/api/getImageAttached/?id={{item.Id}}&size=md" alt="eSupport Attachment">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+            -->
+<!--
+                        <br />Ticket Details Data<br />
+                        <li class="media" ng-repeat="item in group.zData.TcktsDetails">
+
+                            <div class="box box-4">
+                                <div class="box-content">
+                                    <h2>{{item.Status}}</h2>
+                                    <p>{{item.Notes}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        -->
+<!-- Example Image Attachment Listing
+
+ <div id="mixitup-container">
+     <div class="filter-error-message">
+         <span>No items were found matching the selected filters</span>
+     </div>
+
+     <div ng-repeat="item in group.zData.Files" class="mix label1 folder1">
+         <div class="panel p6 pbn">
+             <div class="of-h">
+                 <img ng-src="/api/getImageAttached/?id={{item.Id}}&size=md" class="img-responsive" title="Empty Image">
+
+                 <div class="row table-layout">
+                     <div class="col-xs-8 va-m pln">
+                         <h6>img_1.jpg</h6>
+                     </div>
+                     <div class="col-xs-4 text-right va-m prn">
+                         <span class="fa fa-circle fs10 text-info ml10"></span>
+                     </div>
+                 </div>
+             </div>
+
+         </div>
+     </div>
+
+ </div>
+
+
+    <div class="panel-body">
+                            <div id="oc-images" class="owl-carousel image-carousel carousel-widget" data-margin="20" data-nav="true" data-pagi="false" data-items-xxs="2" data-items-xs="3" data-items-sm="4" data-items-md="5">
+
+                                <div ng-repeat="item in group.zData.Files" class="oc-item">
+                                    <a href="#"><img ng-src="/api/getImageAttached/?id={{item.Id}}&size=md" alt="Image 1"></a>
+                                </div>
+
+                            </div>
+                        </div>
+-->

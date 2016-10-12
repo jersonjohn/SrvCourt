@@ -1,0 +1,24 @@
+﻿<div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+    <div class="allcp-form theme-primary">
+        <div class="panel">
+            <div class="panel-heading">
+                <span class="panel-icon">
+                    <i class="fa fa-pencil"></i>
+                </span>
+                <span class="panel-title"> {{modalGroup.modalHeader}}</span>
+            </div>
+            <div class="panel-body">
+                <form role="form" name="ModalFrm" novalidate>
+                    <div ng-repeat="field in modalGroup.modalFields" ng-form="F1" style="display:inline">
+                        <z-input field='field' zform='F1' zmodel='modalGroup.zModal' index='{{$index + 1}}' group="group" modalGroup="modalGroup"></z-input>
+                    </div>
+                </form>
+            </div>
+            <!--{{modalGroup.modalFields}}-->
+            <!--<div class="panel-footer text-right">
+                <button class="btn btn-primary" type="button" ng-click="ok()"></button>
+                <button class="btn btn-primary" type="button" ng-click="cancel()"></button>
+            </div>-->
+        </div>
+    </div>
+</div>

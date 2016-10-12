@@ -1,0 +1,152 @@
+﻿<!-- -------------- Topbar -------------- -->
+<!--<header id="topbar" class="ph10">
+    <div class="topbar-left">
+        <ul class="nav nav-list nav-list-topbar pull-left">
+            <li class="active">
+                <a href="#">Active Menu Link</a>
+            </li>
+            <li>
+                <a href="#">Menu Link</a>
+            </li>
+            <li>
+                <a href="#">Menu Link</a>
+            </li>
+            <li>
+                <a href="#">Menu Link</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="topbar-right hidden-xs hidden-sm">
+        <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
+            <span class="fa fa-anchor pr5"></span> Button Link
+        </a>
+        <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
+            <span class="fa fa-bullseye pr5"></span> Button Link
+        </a>
+        <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
+            <span class="fa fa-external-link pr5"></span> Button Link
+        </a>
+    </div>
+</header>-->
+<!-- -------------- /Topbar -------------- -->
+<!-- -------------- Content -------------- -->
+<!--<section id="content" class="animated fadeIn">-->
+<!-- -------------- Topbar -------------- -->
+<header id="topbar" class="alt">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-icon">
+                <a href="#">
+                    <span class="fa fa-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-active">
+                <a href="#">{{group.formHeader}}</a>
+            </li>
+            <!--<li class="breadcrumb-link">
+                <a href="#">Menu</a>
+            </li>
+            <li class="breadcrumb-current-item">{{group.formHeader}}</li>-->
+        </ol>
+    </div>
+    <div class="topbar-right">
+        <!--<div class="ib topbar-dropdown">
+            <label for="topbar-multiple" class="control-label">Reporting Period</label>
+            <div class="btn-group">
+                <button type="button" class="multiselect dropdown-toggle btn btn-default btn-bordered ph15" data-toggle="dropdown" title="Last 60 Days" aria-expanded="false">Last 60 Days <b class="caret"></b></button>
+                <ul class="multiselect-container dropdown-menu pull-right">
+                    <li class="multiselect-item multiselect-group"><label>Filter By:</label></li>
+                    <li><a href="javascript:void(0);"><label class="radio"><input type="radio" value="1-1"> Last 30 Days</label></a></li>
+                    <li class="active"><a href="javascript:void(0);"><label class="radio"><input type="radio" value="1-2"> Last 60 Days</label></a></li>
+                    <li><a href="javascript:void(0);"><label class="radio"><input type="radio" value="1-3"> Last Year</label></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="ml15 ib va-m" id="sidebar_right_toggle">
+            <div class="navbar-btn btn-group btn-group-number mv0">
+                <button class="btn btn-sm btn-default btn-bordered prn pln">
+                    <i class="fa fa-bar-chart fs22 text-default"></i>
+                </button>
+                <button class="btn btn-primary btn-sm btn-bordered hidden-xs"> 3</button>
+            </div>
+        </div>-->
+    </div>
+</header>
+<!-- -------------- /Topbar -------------- -->
+<!-- -------------- Topbar -------------- -->
+<!--<header id="topbar" class="ph10">
+    <div class="topbar-left">
+        <ul class="nav nav-list nav-list-topbar pull-left">
+            <li class="active">
+                <a href="#">Active Menu Link</a>
+            </li>
+            <li>
+                <a href="#">Menu Link</a>
+            </li>
+            <li>
+                <a href="#">Menu Link</a>
+            </li>
+            <li>
+                <a href="#">Menu Link</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="topbar-right hidden-xs hidden-sm">
+        <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
+            <span class="fa fa-anchor pr5"></span> Button Link
+        </a>
+        <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
+            <span class="fa fa-bullseye pr5"></span> Button Link
+        </a>
+        <a href="#" class="btn btn-default btn-sm light fw600 ml10 mt5">
+            <span class="fa fa-external-link pr5"></span> Button Link
+        </a>
+    </div>
+</header>-->
+<!-- -------------- /Topbar -------------- -->
+<!-- -------------- Content -------------- -->
+<!--<section id="content" class="animated fadeIn">-->
+<section id="content">
+    <div class="allcp-form theme-primary">
+        <div class="panel">
+            <!--<div class="panel-heading">
+                <div class="panel-title">
+                    {{group.formHeader}}
+                </div>
+            </div>-->
+            <!--<div class="panel-body">-->
+            <form id="zFrm" role="form" name="Frm" novalidate ng-class="[group.formChecked == true ? 'form-checked' : null]">
+                <div ng-repeat="field in group.fields" style="display:inline">
+                    <!--ng-form="F1" style="display:inline">-->
+                    <z-input field='field' zform='F1' zmodel='group.zModel' index='{{$index + 1}}' group="group"></z-input> <!--tabindex='{{$index + 1}}'></z-input>-->
+                </div>
+            </form>
+            <div class="clearfix"></div>
+            <!--<div pre-loader isloading="group.isLoading" class="overLay"></div>-->
+            <!--{{Frm.$dirty}}
+            {{group.zModel}}-->
+            <!--</div>-->
+        </div>
+    </div>
+</section>
+<!-- -------------- /Content -------------- -->
+<!--<div class="panel panel-primary">
+    <h3 class="panel-heading">{{group.formHeader}}</h3>
+    <div class="panel-body">
+        <form role="form" name="Frm" novalidate>
+            <div ng-repeat="field in group.fields" ng-form="F1" style="display:inline">
+                <z-input field='field' zform='F1' zmodel='group.zModel' index='{{$index + 1}}'></z-input>
+            </div>
+        </form>
+        <div pre-loader isloading="group.isLoading" class="overLay"></div>
+
+    </div>
+</div>
+<hr />
+<footer>
+    <p>&copy; 2016 - AMES UNITED - iBUDGET Application</p>
+</footer>-->
+<!--</section>-->
+<!-- -------------- /Content -------------- -->

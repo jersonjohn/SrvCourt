@@ -1,0 +1,98 @@
+﻿
+<div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+    <div class="modal-dialog schedule-grid-daily">
+        <div class="modal-body pad  wd-new ">
+            <div class="modal-content">
+                <div class="modal-header noborder modal-hd-sty">
+                    <!------Close Button ---->
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
+                    <h4 class="modal-title center" id="myModalLabel">New Appointment</h4>
+                </div>
+
+                <div class="modal-body">
+                    <!------Content Start ---->
+
+                    <form id="widget-subscribe-form" name="F1" class="nobottommargin" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <span style="color:red;font-size: 10px;">{{message}}</span>
+                            </div>
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="label-style">Customer ID</label><br>
+                                    <div class="control-group">
+                                    <input  class="input-style" style="width:190px;" name="customeridaes" id="customeridaes" required type="text" ng-model="modalGroup.zModal.CustomerId_AES" ng-blur="OnChangeCustomerId()" ng-enter="OnChangeCustomerId()">
+                                   
+                                    <button type="button" class="btn btn-info">
+                                        <i class="fa fa-search"></i>
+                                        
+                                    </button>
+                                   </div>
+                            </div>
+
+                            <!--<em ng-if="F1.customeridaes.$error.required && F1.customeridaes.$dirty" for="customeridaes" class="state-error">Enter Customer ID</em>-->
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="label-style">Customer Name</label><br>
+                                <input class="input-style txtarea-sty" type="text" ng-model="modalGroup.zModal.CustomerName" ng-disabled="true" required><br>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="label-style">Appointment Date</label>
+                                <!--<input class="input-style" type="date" id="date" name="Date"><br>-->
+                                <input type="text" width="50" zuidatepicker="MODAL" class="gui-input form-control" ng-model="modalGroup.zModal.BookDate" ng-change="OnChangeBookDate()" ng-disabled="true" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <label class="label-style">Appointment Time</label>
+                                <!--<input class="input-style" type="time" id="time" name="time">-->
+                                <input type="text" width="50" zuitimepicker="MODAL" class="gui-input form-control" ng-model="modalGroup.zModal.BookTime" ng-blur="OnChangeBookTime()" ng-disabled="false" required>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="tab-style">
+                                    <label class="label-style">Is Referrer?</label><br>
+
+                                    <input type="checkbox" zuicheckbox placeholder="IsReferrer?" ng-model="modalGroup.zModal.IsReferrer">
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                            <div class="row">
+                                <div class="modal-footer mfooter-sty">
+                                    <div class="col-md-12 col-sm-12 center">
+                                        <button type="button" class="btn btn-default btn-sty bg-cyan txt-bk" ng-click="modalGroup.modalAnswer('OK')" ng-disabled="F1.$invalid">Book Now</button>
+                                        <button type="button" class="btn btn-default btn-sty  txt-bk" ng-click="modalGroup.modalAnswer('Cancel')">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+
+</form>
+
+
+
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

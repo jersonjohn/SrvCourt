@@ -1,0 +1,257 @@
+﻿
+
+<header id="topbar" class="alt">
+    <div class="topbar-left">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-icon">
+                <a href="#">
+                    <span class="fa fa-home"></span>
+                </a>
+            </li>
+            <li class="breadcrumb-active">
+                <a href="#">{{group.formHeader}}-[{{brandName}} - {{outletName}}]</a>
+            </li>
+
+        </ol>
+    </div>
+    <div class="topbar-right">
+
+    </div>
+</header>
+
+<!-- -------------- Content -------------- -->
+<section id="content" class="animated fadeIn">
+    <div class="allcp-form theme-primary">
+        <div class="panel">
+            <!--<div class="panel-heading">
+                <div class="panel-title">
+                   {{group.formHeader}}-[{{brandName}} - {{outletName}}]
+                </div>
+            </div>-->
+            <!--<div class="panel-body">-->
+            <div class="panel-body" style="padding:10px">
+
+
+
+                <div class="col-xs-12 col-md-12">
+                    <form class="form-inline hidden-sm hidden-xs" role="form" style="height:55px">
+                        <div class="form-group">
+                            <!--<p class="input-group">-->
+                            <button type="button" class="btn btn-primary" ng-click="prevDay()" ng-disabled="disableprevDay"><</button>
+                            <button type="button" class="btn btn-primary" ng-click="today()">Today</button>
+                            <button type="button" class="btn btn-primary" ng-click="nextDay()" ng-disabled="disablenextDay">></button>
+                        </div>
+                        <div class="form-group" style="margin: 0px 10px">
+                            <label class="field prepend-icon">
+                                <input type="text" id="Request Date"   class="gui-input form-control" zuidatepicker="" dateformat="DD/MM/YYYY, ddd" specialdates="specialdates" ng-model="dt" ng-change="OnChangeDate()" ng-required="false">
+                                <label class="field-icon"> <i class="fa fa-calendar"></i></label>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="button" class="btn btn-info" ng-click="search()">
+                                <i class="fa fa-user"></i>
+
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-info" ng-click="showHoliday()">
+                                <i class="fa fa-plane"></i>
+
+                            </button>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <button type="button" class="btn btn-info" ng-click="saveAppointment()">
+                                <i class="fa fa-print"></i>
+
+                            </button>
+                        </div>
+
+
+
+
+                    </form>
+                    <form class="form-inline hidden-md hidden-lg" role="form" style="height:55px">
+                        <div class="form-group">
+                            <!--<p class="input-group">-->
+                            <button type="button" class="btn btn-primary" ng-click="prevDay()" ng-disabled="disableprevDay"><</button>
+                            <button type="button" class="btn btn-primary" ng-click="today()">Today</button>
+                            <button type="button" class="btn btn-primary" ng-click="nextDay()" ng-disabled="disablenextDay">></button>
+                            <div class="field prepend-icon" style="width:160px">
+                                <input type="text" id="Request Date"  class="gui-input form-control" zuidatepicker="" dateformat="DD/MM/YYYY, ddd"  specialdates="specialdates" ng-model="dt" ng-change="OnChangeDate()" ng-required="false" />
+                                <label class="field-icon"> <i class="fa fa-calendar"></i></label>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="col-xs-12 col-md-12">
+                    <form class="form-inline hidden-sm hidden-xs" role="form" style="height:80px">
+                        <div class="form-group" style="margin-top:15px; margin-right:10px;">
+                            <button id="blockslot' " type="button" class="btn btn-primary" ng-click="blockSlot()" ng-disabled="true">{{blockText}}</button>
+                            <button type="button" class="btn btn-primary" ng-click="showLegend()">Legend</button>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 15px;">
+                            <!--<label class="control-label" for="Disabled">Show cancel</label>
+                            <zuicheckbox id="showCancel" value="showCancel" label="Disabled" showlabel="true">
+                            </zuicheckbox>-->
+                            <button type="button" id="showCancelBtn" class="btn btn-primary" ng-click="showCancelAppt()">
+                                {{showCancelText}}
+                            </button>
+                        </div>
+
+
+
+                        <div class="form-group" style="margin-top:15px;">
+                            <!--<label class="control-label" for="Disabled">Show name</label>-->
+                            <!--<zuicheckbox id="showName" value="showName" label="showName" showlabel="true">
+                            </zuicheckbox>-->
+                            <button type="button" id="showNameBtn" class="btn btn-primary" ng-click="showIdOrName()">
+                                {{showNameText}}
+                            </button>
+                        </div>
+
+
+                        <!--<div class="form-group" style="margin: 0px 10px">
+                            <label class="control-label" for="Disabled">Outlet</label>
+                            <label class="field select">
+                                <select class="gui-input form-control" id="OutletId" ng-model="outletId"
+                                        ng-options="item.Name + '-' +  item.Description for item in outlets track by item.Id"
+                                        convert-to-number="true" ng-required="true" ng-change="OnChangeOutlet()"></select>
+                                <i class="arrow"></i>
+                            </label>
+                        </div>-->
+
+                        <div class="form-group" style="margin: 0px 10px">
+                            <label class="control-label" for="Disabled">Outlet</label>
+                            <label class="field select">
+                                <select class="gui-input form-control" id="OutletId" ng-model="outletId"
+                                        ng-options="item.BrandShortName + '-' +  item.OutletShortName + '-' + item.OutletName  for item in accessSetting track by item.Id"
+                                        convert-to-number="true" ng-required="true" ng-change="OnChangeOutlet()"></select>
+                                <i class="arrow"></i>
+                            </label>
+                        </div>
+                    </form>
+                    <form class="form-inline hidden-md hidden-lg" role="form" style="height:80px">
+                        <div class="form-group" style="margin-top:15px; margin-right:10px;">
+                            <button id="blockslot' " type="button" class="btn btn-primary" ng-click="blockSlot()" ng-disabled="true">{{blockTextSmall}}</button>
+                            <button type="button" style="margin: 0px 0px 0px 2px" class="btn btn-primary" ng-click="showLegend()">
+                                <i class="fa fa-tags"></i>
+                            </button>
+                            <button type="button" style="margin: 0px 0px 0px 2px" class="btn btn-info" ng-click="search()">
+                                <i class="fa fa-user"></i>
+                            </button>
+                            <button type="button" style="margin: 0px 0px 0px 2px" class="btn btn-info" ng-click="showHoliday()">
+                                <i class="fa fa-plane"></i>
+                            </button>
+                            <button type="button" id="showCancelSmallBtn" style="margin: 0px 0px 0px 2px" class="btn btn-info" ng-click="showCancelApptSmall()">
+                                {{showCancelSmallText}}
+                            </button>
+                            <button type="button" id="showNameSmallBtn" style="margin: 0px 0px 0px 2px" class="btn btn-info" ng-click="showIdOrNameSmall()">
+                                {{showNameSmallText}}
+                            </button>
+
+                            <button type="button" style="margin: 0px 0px 0px 2px" class="btn btn-info" ng-click="saveAppointment()" ng-disabled="disablePrint">
+                                <i class="fa fa-print"></i>
+
+                            </button>
+
+                           
+                            <!--<label class="field select">
+                                <select class="gui-input form-control" style="margin: 0px 0px 0px 5px" id="OutletId" ng-model="outletId"
+                                        ng-options="item.BrandShortName + '-' +  item.OutletShortName + '-' + item.OutletName  for item in accessSetting track by item.Id"
+                                        convert-to-number="true" ng-required="true" ng-change="OnChangeOutlet()"></select>
+                                <i class="arrow"></i>
+                            </label>-->
+                        </div>
+
+                        <!--<div class="form-group" style="margin-top: 15px;">
+
+                            <button type="button" id="showCancelSmallBtn" class="btn btn-info" ng-click="showCancelApptSmall()">
+                                {{showCancelSmallText}}
+                            </button>
+                        </div>
+
+
+
+                        <div class="form-group" style="margin-top:15px;">
+
+                            <button type="button" id="showNameSmallBtn" class="btn btn-info" ng-click="showIdOrNameSmall()">
+                                {{showNameSmallText}}
+                            </button>
+                        </div>-->
+
+
+                        <!--<div class="form-group" style="margin: 0px 10px">
+                            <label class="control-label" for="Disabled">Outlet</label>
+                            <label class="field select">
+                                <select class="gui-input form-control" id="OutletId" ng-model="outletId"
+                                        ng-options="item.Name + '-' +  item.Description for item in outlets track by item.Id"
+                                        convert-to-number="true" ng-required="true" ng-change="OnChangeOutlet()"></select>
+                                <i class="arrow"></i>
+                            </label>
+                        </div>-->
+                    </form>
+
+                    <!--<form class="form-inline hidden-md hidden-lg" role="form" style="height:80px">-->
+                    <!--<div class="form-group" style="margin: 0px 5px;">
+                        <span>
+                            <label class="control-label" for="Disabled">Show cancel</label>
+                            <zuicheckbox id="showCancel" value="showCancel" label="Disabled" showlabel="true">
+                            </zuicheckbox>
+                        </span>
+                        <span>
+                            <label class="control-label" for="Disabled">Show name</label>
+                            <zuicheckbox id="showName" value="showName" label="showName" showlabel="true">
+                            </zuicheckbox>
+                        </span>
+                    </div>-->
+                    <!--<div class="form-group" style="margin: 0px 10px">
+                        <label class="control-label" for="Disabled">Outlet</label>
+                        <label class="field select">
+                            <select class="gui-input form-control" id="OutletId" ng-model="outletId"
+                                    ng-options="item.Name + '-' +  item.Description for item in outlets track by item.Id"
+                                    convert-to-number="true" ng-required="true" ng-change="OnChangeOutlet()"></select>
+                            <i class="arrow"></i>
+                        </label>
+                    </div>-->
+                    <!--</form>-->
+
+                </div>
+
+
+                <!--<div class="col-xs-4 col-md-3">
+                    <p class="input-group">
+
+
+                    </p>
+                </div>-->
+                <!--<br />-->
+                <!-- dailySchedule -->
+                <div class="col-xs-12 col-md-12" ng-if="loadMasterData == true">
+                    <!--ng-if="loadMasterData == true"-->
+
+                    <daily-schedule-brand outletid="{{outletId}}" sdate="{{dt | date:'MM-dd-yyyy'}}" block="{{block}}"></daily-schedule-brand>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</section>
+
+<!-- -------------- /Content -------------- -->

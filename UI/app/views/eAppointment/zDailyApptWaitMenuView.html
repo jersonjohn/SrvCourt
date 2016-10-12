@@ -1,0 +1,36 @@
+﻿<div id="modalPopUp" class="modal-basic bg-none mfp-with-anim mfp-hide">
+    <div class="modal-dialog wd schedule-grid-daily">
+        <div class="modal-body pad">
+            <div class="modal-content">
+                <div class="modal-header noborder  modal-hd-sty">
+                    <!------Close Button ---->
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+                    <!---<h4 class="modal-title" id="myModalLabel">Modal Heading</h4>--->
+                    <h6 class="modal-title center" id="myModalLabel">Waiting List Appointments</h6>
+                   
+                </div>
+                <div class="modal-body center" ng-show="modalGroup.zModal.appointments.length > 0">
+                    <!------Content Start ---->
+                    <h6>Please Select to convert to Confirm</h6>
+                    <div ng-repeat="appointment in modalGroup.zModal.appointments">
+                        <div class={{appointment.type}} ng-click="modalGroup.modalAnswer(appointment.appid)" style="cursor:pointer; padding: 10px; height:50px; margin-bottom:2px;" >
+                                <!--<h6 style="color:#fff;"><a href="#" ng-click="modalGroup.modalAnswer('{{appointment.appid}}')">{{modalGroup.customerId}} -{{modalGroup.customerName}}</a></h6>-->
+                                <h6 style="color:black;"><span>[{{appointment.vipCategory}}]{{appointment.customerId}} - {{appointment.customerName}}</span></h6>
+                                <!--<hr style="margin: 30px 0; border-top: 1px solid #DDD;">-->
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="modal-footer" style="text-align:center!important;">
+                    <hr style="margin: 30px 0; border-top: 1px solid #DDD;">
+                    <div>
+                        <h6 style="color:#fff;display: {{modalGroup.zModal.displayadd}};"><img src="/Templates/images/icon_newAppt.png" width="16" height="16" alt="" /><a href="#" ng-click="modalGroup.modalAnswer('new')">&nbsp;New Appointment</a></h6>
+                    </div>
+                </div>-->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
