@@ -16,7 +16,7 @@ angular.module("zApp_Config", [])
 
         var _OAuth2 = {
 
-            BaseUri: 'http://oauth.amesunited.com/',
+            BaseUri: 'http://localhost:220223/',
             clientId: 'ngAuthApp'
         };
 
